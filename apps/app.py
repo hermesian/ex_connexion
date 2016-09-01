@@ -11,6 +11,10 @@ from connexion import NoContent
 PETS = {}
 
 
+def upload(file = None) -> str:
+    return 'do some magic!'
+
+
 def get_pets(limit, animal_type=None):
         return [pet for pet in PETS.values() if not animal_type or pet['animal_type'] == animal_type][:limit]
 
