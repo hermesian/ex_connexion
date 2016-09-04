@@ -6,7 +6,7 @@ paths:
   /pets:
     get:
       tags: [Pets]
-      operationId: app.get_pets
+      operationId: controllers.controller.get_pets
       summary: Get all pets
       consumes:
         - application/json
@@ -29,10 +29,23 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Pet'
+    post:
+      operationId: controllers.controller.upload
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: file
+          in: formData
+          type: file
+      responses:
+        200:
+          description: upload success!
   /pets/{pet_id}:
     get:
       tags: [Pets]
-      operationId: app.get_pet
+      operationId: controllers.controller.get_pet
       summary: Get a single pet
       consumes:
         - application/json
@@ -49,7 +62,7 @@ paths:
           description: Pet does not exist
     put:
       tags: [Pets]
-      operationId: app.put_pet
+      operationId: controllers.controller.put_pet
       summary: Create or update a pet
       consumes:
         - application/json
@@ -68,7 +81,7 @@ paths:
           description: New pet created
     delete:
       tags: [Pets]
-      operationId: app.delete_pet
+      operationId: controllers.controller.delete_pet
       summary: Remove a pet
       consumes:
         - application/json
@@ -81,20 +94,6 @@ paths:
           description: Pet was deleted
         404:
           description: Pet does not exist
-  /dog:
-    post:
-      operationId: app.upload
-      consumes:
-        - multipart/form-data
-      produces:
-        - application/json
-      parameters:
-        - name: file
-          in: formData
-          type: file
-      responses:
-        200:
-          description: upload success!
 
 parameters:
   pet_id:

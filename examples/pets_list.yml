@@ -1,0 +1,10 @@
+dogs:
+  name: Cha-cha
+  type: Dachshund
+  age: 8
+  weight: 5.0
+cat:
+  name: Hana
+  type: Japanese Bobtail
+  age: 2
+  weight: 3.5
